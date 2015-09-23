@@ -24,17 +24,17 @@
 	</bean>
 
 
-	<!-- <context:property-placeholder location="classpath:aboportal.properties"/> -->
+	<context:property-placeholder location="classpath:aboportal.properties"/>
 
-
+<!-- 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename">
-			<!-- <value>classpath:aboportal</value> -->
+			<value>classpath:aboportal</value>
 			<value>file:///C:/Softwares/Jai/Personal/JaiPersonalSamples/MKYongSpringMVC-Json-Example/src/main/resources/aboportal.properties</value>
 		</property>
 		<property name="cacheSeconds" value="1" />
-	</bean>
+	</bean> -->
 
 
 </beans>
