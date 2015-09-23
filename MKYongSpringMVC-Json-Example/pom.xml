@@ -10,7 +10,7 @@
 
 	<properties>
 		<spring.version>3.2.2.RELEASE</spring.version>
-		<jackson.codehaus.version>1.9.10</jackson.codehaus.version>
+		<jackson.codehaus.version>1.9.12</jackson.codehaus.version>
 		<jdk.version>1.6</jdk.version>
 	</properties>
 
@@ -35,18 +35,9 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- Jackson JSON Mapper -->
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>${jackson.codehaus.version}</version>
-		</dependency>
-
 		<dependency>
 			<groupId>com.ibm.ws.jaxrs</groupId>
-			<artifactId>
-				ibm-wink-jaxrs
-			</artifactId>
+			<artifactId>ibm-wink-jaxrs</artifactId>
 			<version>1.0</version>
 		</dependency>
 
@@ -73,36 +64,33 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
+		
+			<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		
 
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-xc</artifactId>
-			<version>1.9.1</version>
+			<version>${jackson.codehaus.version}</version>
 		</dependency>
-
-		<!-- commmented to get rid failing of /rest/kfc/brands/asda <dependency> 
-			<groupId>org.codehaus.jackson</groupId> <artifactId>jackson-core-asl</artifactId> 
-			<version>1.9.1</version> </dependency> <dependency> <groupId>org.codehaus.jackson</groupId> 
-			<artifactId>jackson-mapper-asl</artifactId> <version>1.9.1</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-jaxrs</artifactId>
-			<version>1.9.1</version>
+			<version>${jackson.codehaus.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-xc</artifactId>
-			<version>1.9.1</version>
-		</dependency>
-
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.apache.wink</groupId>
 			<artifactId>wink-json-provider</artifactId>
 			<version>1.4</version>
 		</dependency>
-
+ -->
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
