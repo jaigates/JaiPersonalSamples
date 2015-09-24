@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- <bean id="customerDAO" class="com.mkyong.customer.dao.impl.JdbcCustomerDAO"> <property name="dataSource" ref="dataSource" /> </bean> -->
+	<bean id="employeeDao" class="com.mkyong.customer.dao.impl.EmployeeDAO">
+		<property name="dataSource" ref="springDataSource" />
+	</bean>
+	
+	<bean id="TEST0117DAO" class="com.TEST0117.TEST0117DAOImpl">
+		<property name="dataSource" ref="dbesse" />
+	</bean>
+
+
+	<bean id="customerDAO" class="com.mkyong.customer.dao.impl.JdbcCustomerDAO">
+		<property name="dataSource" ref="springDataSource" />
+	</bean>
+
+</beans>

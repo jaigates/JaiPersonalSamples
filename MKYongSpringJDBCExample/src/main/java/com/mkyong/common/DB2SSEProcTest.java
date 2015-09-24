@@ -1,0 +1,31 @@
+package com.mkyong.common;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.TEST0117.TEST0117DAO;
+
+public class DB2SSEProcTest {
+	public static final Logger log = LoggerFactory.getLogger(DB2SSEProcTest.class);
+
+	static DataSource ds;
+	static ApplicationContext context;
+
+	public static void main(String[] args) throws SQLException {
+		context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		test117_using_springsp();
+	}
+
+	private static void test117_using_springsp() {
+		TEST0117DAO dao1 = (TEST0117DAO) context.getBean("copyOfEmployeeDao");
+		 Map<String, Object> result = dao1.getResult("ABO01011");
+		 System.out.println(result);
+	}
+}
