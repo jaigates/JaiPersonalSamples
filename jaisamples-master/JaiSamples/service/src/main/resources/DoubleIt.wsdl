@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="DoubleItPortTypeService" targetNamespace="http://service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service/">
+    <xs:element name="DoubleRequest" type="tns:DoubleRequest"/>
+    <xs:complexType name="DoubleRequest">
+        <xs:sequence>
+            <xs:element name="value" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="doubleResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="returnValue" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="doubleIt" type="tns:doubleIt"/>
+    <xs:complexType name="doubleIt">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="arg0" type="tns:DoubleRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="doubleItResponse" type="tns:doubleItResponse"/>
+    <xs:complexType name="doubleItResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:doubleResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="doubleIt">
+    <wsdl:part name="parameters" element="tns:doubleIt">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doubleItResponse">
+    <wsdl:part name="parameters" element="tns:doubleItResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DoubleItPortType">
+    <wsdl:operation name="doubleIt">
+      <wsdl:input name="doubleIt" message="tns:doubleIt">
+    </wsdl:input>
+      <wsdl:output name="doubleItResponse" message="tns:doubleItResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DoubleItPortTypeServiceSoapBinding" type="tns:DoubleItPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="doubleIt">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="doubleIt">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doubleItResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DoubleItPortTypeService">
+    <wsdl:port name="DoubleItPortTypePort" binding="tns:DoubleItPortTypeServiceSoapBinding">
+      <soap:address location="http://localhost:9090/hello"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

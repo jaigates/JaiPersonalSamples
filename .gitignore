@@ -1,0 +1,6 @@
+**/target
+**/.settings
+**/.apt_generated
+**/classes
+**/build
+**/bin-eclipse

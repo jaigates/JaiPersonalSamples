@@ -24,7 +24,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	</bean>
 
 
-	<bean id="dbesse" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" lazy-init="true">
+	<bean name="dbesse"  id="dbesse" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" lazy-init="true">
 		<property name="poolPreparedStatements" value="true" />
 		<property name="url" value="jdbc:db2://148.171.100.10:7320/ADC1DB2D" />
 		<property name="driverClassName" value="com.ibm.db2.jcc.DB2Driver" />

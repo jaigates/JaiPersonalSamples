@@ -1,0 +1,242 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.gmazza.blog-samples.web-service-tutorial</groupId>
+		<artifactId>web-service-tutorial</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>web-service-tutorial-service</artifactId>
+	<name>-- Web Service Provider</name>
+	<packaging>bundle</packaging>
+	<!-- <packaging>jar</packaging> -->
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!--
+				Below plugin provides a separate JAR for the JAX-WS artifacts (i.e.,
+				the objects created by running wsdl2java or wsimport), as this JAR
+				will also be used by the SOAP client. More info:
+				http://maven.apache.org/plugins/maven-assembly-plugin/
+			-->
+
+		</plugins>
+		<!-- Name of the generated WAR file -->
+		<finalName>doubleit</finalName>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>CXF</id>
+			<!-- To use Metro by default, move activation element to its profile below -->
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.cxf</groupId>
+						<artifactId>cxf-codegen-plugin</artifactId>
+						<version>${cxf.version}</version>
+						<executions>
+							<execution>
+								<configuration>
+									<sourceRoot>
+										${basedir}/target/generated-sources
+									</sourceRoot>
+									<wsdlOptions>
+										<wsdlOption>
+											<wsdl>
+												${basedir}/src/main/resources/DoubleIt.wsdl
+											</wsdl>
+											<wsdlLocation>classpath:DoubleIt.wsdl</wsdlLocation>
+										</wsdlOption>
+									</wsdlOptions>
+								</configuration>
+								<goals>
+									<goal>wsdl2java</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>2.4</version>
+						<configuration>
+							<descriptors>
+								<descriptor>src/assembly/jaxws-jar.xml</descriptor>
+							</descriptors>
+							<appendAssemblyId>true</appendAssemblyId>
+							<attach>true</attach>
+						</configuration>
+						<executions>
+							<execution>
+								<id>make-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.felix</groupId>
+						<artifactId>maven-bundle-plugin</artifactId>
+						<configuration>
+							<instructions>
+								<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+								<Export-Package>service</Export-Package>
+							</instructions>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>CXF-java2wsdl</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.cxf</groupId>
+						<artifactId>cxf-codegen-plugin</artifactId>
+						<version>2.0.9</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.cxf</groupId>
+								<artifactId>cxf-rt-frontend-jaxws</artifactId>
+								<version>2.0.9</version>
+							</dependency>
+						</dependencies>
+						<executions>
+							<execution>
+								<id>generate-wsdl</id>
+								<phase>process-classes</phase>
+								<configuration>
+									<className>service.impl.DoubleItPortTypeImpl</className>
+									<className>service.DoubleItPortType</className>
+									<verbose>true</verbose>
+									<outputFile>${project.build.directory}/generated/wsdl/DoubleIt.wsdl</outputFile>
+									<sourceRoot>${project.build.directory}/generated</sourceRoot>
+									<wsdlOptions>
+										<wsdlOption>
+											<wsdl>
+												${project.build.directory}/generated/wsdl/DoubleIt.wsdl
+											</wsdl>
+											<wsdlLocation>classpath:DoubleIt.wsdl</wsdlLocation>
+										</wsdlOption>
+									</wsdlOptions>
+								</configuration>
+								<goals>
+									<goal>java2wsdl</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<phase> process-classes</phase>
+								<configuration>
+									<target>
+ 											<copy file="${project.build.directory}/generated/wsdl/DoubleIt.wsdl" todir="src/main/resources" verbose="true"/>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>2.4</version>
+						<configuration>
+							<descriptors>
+								<descriptor>src/assembly/java-2-wsdl-jaxws.xml</descriptor>
+							</descriptors>
+							<appendAssemblyId>true</appendAssemblyId>
+							<attach>true</attach>
+						</configuration>
+						<executions>
+							<execution>
+								<id>make-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.felix</groupId>
+						<artifactId>maven-bundle-plugin</artifactId>
+						<configuration>
+							<instructions>
+								<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+								<Export-Package>service</Export-Package>
+							</instructions>
+
+						</configuration>
+					</plugin>
+
+
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>Metro</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jvnet.jax-ws-commons</groupId>
+						<artifactId>jaxws-maven-plugin</artifactId>
+						<version>2.2</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>wsimport</goal>
+								</goals>
+								<configuration>
+									<wsdlDirectory>
+										src/main/resources
+									</wsdlDirectory>
+									<wsdlFiles>
+										<wsdlFile>DoubleIt.wsdl</wsdlFile>
+									</wsdlFiles>
+									<wsdlLocation>/*</wsdlLocation>
+									<sourceDestDir>
+										${basedir}/target/generated-sources
+									</sourceDestDir>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
+		
+	
+</project>
+
+
