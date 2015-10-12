@@ -9,7 +9,7 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
+		<spring.version>3.2.4.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
@@ -33,10 +33,17 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
-		<finalName>SpringMVC</finalName>
+		<finalName>Spring3MVC-REST-HelloWorld-Example</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

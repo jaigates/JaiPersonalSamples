@@ -1,4 +1,4 @@
-package com.mkyong.customer.dao.impl;
+package com.mkyong.customer.dao.impl.tomcatjndi;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +18,6 @@ public class JdbcCustomerDAO implements CustomerDAOI
 		this.dataSource = dataSource;
 	}
 	
-	@Override
 	public void insert(Customer customer){
 		
 		String sql = "INSERT INTO CUSTOMER " +
@@ -46,7 +45,7 @@ public class JdbcCustomerDAO implements CustomerDAOI
 		}
 	}
 	
-	@Override
+	
 	public Customer findByCustomerId(int custId){
 		
 		String sql = "SELECT * FROM CUSTOMER WHERE CUST_ID = ?";
@@ -81,7 +80,7 @@ public class JdbcCustomerDAO implements CustomerDAOI
 	}
 	
 	
-@Override
+
 public Customer findByCustomerName(String  custName){
 		
 		String sql = "SELECT * FROM CUSTOMER WHERE NAME = ?";
