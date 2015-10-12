@@ -14,7 +14,7 @@
 		<%=new java.util.Date()%>
 	</h1>
 	<a href="JDBCDataSourceExample">JDBCDataSourceExample</a> <br/>
-	<a href="JDBCDataSourceExampleSpring">JDBCDataSourceExampleSpring</a>
+	<a href="JDBCDataSourceExampleSpring">rest/JDBCDataSourceExampleSpring</a>
 
 </body>
 </html>

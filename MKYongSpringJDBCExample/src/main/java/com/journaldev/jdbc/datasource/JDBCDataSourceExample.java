@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
- 
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -16,10 +16,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
  
 @WebServlet("/JDBCDataSourceExample")
 public class JDBCDataSourceExample extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    
+   
+    private DataSource dataSource;
+
+    @Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
         
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Context ctx = null;
@@ -28,10 +40,10 @@ public class JDBCDataSourceExample extends HttpServlet {
         ResultSet rs = null;
         try{
             ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/MyLocalDB");
-            //DataSource ds = (DataSource) ctx.lookup("jdbc/MyLocalDB");
+            //DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/MyLocalDB");
+            //DataSource ds1 = (DataSource) ctx.lookup("jdbc/MyLocalDB");
              
-            con = ds.getConnection();
+            con = dataSource.getConnection();
             stmt = con.createStatement();
              
             rs = stmt.executeQuery("select * from Employee");

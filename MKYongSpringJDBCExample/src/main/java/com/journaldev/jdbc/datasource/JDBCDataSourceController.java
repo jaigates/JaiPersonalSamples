@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,11 +22,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/JDBCDataSourceExampleSpring")
 public class JDBCDataSourceController {
 
-	private @Autowired HttpServletRequest request;
-	
-	private @Autowired HttpSession session;
+	private @Autowired
+	HttpServletRequest request;
 
-	@RequestMapping(value={"","/"},produces="text/html")
+	private @Autowired
+	HttpSession session;
+
+	private DataSource dataSource;
+
+	@Autowired
+	@Qualifier("tomcat_jndi_ds")
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
+	@RequestMapping(value = { "", "/" }, produces = "text/html")
 	@ResponseBody
 	public String doGet() {
 		Context ctx = null;
@@ -34,10 +45,11 @@ public class JDBCDataSourceController {
 		ResultSet rs = null;
 		try {
 			ctx = new InitialContext();
-			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/MyLocalDB");
-			// DataSource ds = (DataSource) ctx.lookup("jdbc/MyLocalDB");
+			// dataSource = (DataSource)
+			// ctx.lookup("java:/comp/env/jdbc/MyLocalDB");
+			// DataSource ds = (DataSource) ctx.lookup("tomcat_jndi_ds");
 
-			con = ds.getConnection();
+			con = dataSource.getConnection();
 			stmt = con.createStatement();
 
 			rs = stmt.executeQuery("select * from Employee");
