@@ -7,6 +7,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.TEST0117.TEST0117DAO;
+import com.mkyong.customer.dao.impl.Employee;
+import com.mkyong.customer.dao.impl.tomcatjndi.JDBCEmployeeDAO;
 
 public class App 
 {
@@ -30,12 +32,16 @@ public class App
 		String employeeName = dao.getEmployeeName(customer1.getCustId());
 		System.out.printf("Employee name for id %s is :%s",customer1.getCustId(), employeeName);*/
 		
-		
+	/*	
 		 TEST0117DAO dao1 = (TEST0117DAO) context.getBean("copyOfEmployeeDao");
 		 Map<String, Object> result = dao1.getResult("ABO01011");
 		 System.out.println(result);
+		 */
 		 
-		 
+    	JDBCEmployeeDAO jdao = (JDBCEmployeeDAO) context.getBean("jDBCEmployeeDAO");
+    	Employee emp = new Employee();
+		jdao.insert(emp);
+
         
     }
 }

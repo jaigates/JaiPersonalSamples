@@ -1,13 +1,20 @@
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> <property name="driverClassName" value="com.mysql.jdbc.Driver" /> 
-		<property name="url" value="jdbc:mysql://localhost:3306/mkyongjava" /> <property name="username" value="root" /> <property name="password" value="password" /> </bean> -->
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> <property name="driverClassName" value="org.postgresql.Driver" /> 
-		<property name="url" value="jdbc:postgresql://localhost:5432/jailocal" /> <property name="username" value="role1" /> <property name="password" value="role1" /> </bean> -->
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> <property 
+		name="url" value="jdbc:mysql://localhost:3306/mkyongjava" /> <property name="username" 
+		value="root" /> <property name="password" value="password" /> </bean> -->
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="org.postgresql.Driver" /> <property 
+		name="url" value="jdbc:postgresql://localhost:5432/jailocal" /> <property 
+		name="username" value="role1" /> <property name="password" value="role1" 
+		/> </bean> -->
 
-	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean id="propertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
 				<value>classpath:jdbc.properties</value>
@@ -20,17 +27,22 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
-		<property name="defaultAutoCommit" value="false"/>
+		<property name="defaultAutoCommit" value="false" />
+	</bean>
+
+	<bean id="tomcat_jndi_ds" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:/comp/env/jdbc/MyLocalDB" />
 	</bean>
 
 
-	<bean name="dbesse"  id="dbesse" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" lazy-init="true">
+	<bean name="dbesse" id="dbesse" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" lazy-init="true">
 		<property name="poolPreparedStatements" value="true" />
 		<property name="url" value="jdbc:db2://148.171.100.10:7320/ADC1DB2D" />
 		<property name="driverClassName" value="com.ibm.db2.jcc.DB2Driver" />
 		<property name="username" value="XB1088A" />
 		<property name="password" value="GCP@15TS" />
-		<property name="defaultAutoCommit" value="false"/>
+		<property name="defaultAutoCommit" value="false" />
 	</bean>
 
 

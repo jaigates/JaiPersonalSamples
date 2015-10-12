@@ -17,7 +17,6 @@ public class TEST0123DAOImpl implements TEST0123DAO {
 		this.sproc = new Test0123SP(jdbcTemplate.getDataSource());
 	}
 
-	@Override
 	public Map<String, Object> getResult(String IN_GUID, String SQLCODE_PARM, String RESP_CODE, String RESP_MSG) {
 		Map<String, Object> execute = sproc.execute(IN_GUID, SQLCODE_PARM, RESP_CODE, RESP_MSG);
 		return execute;
