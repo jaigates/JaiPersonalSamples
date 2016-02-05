@@ -1,0 +1,64 @@
+package com.postgres.spexceptionhadling;
+
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.TransactionStatus;
+
+public abstract class BaseDAO {
+	
+	protected JdbcTemplate jdbcTemplate;
+	
+	/**
+	 * default constructor
+	 */
+	public BaseDAO(){
+	}
+	/**
+	 * for Setting DataSource
+	 * 
+	 * @param: DataSource dataSource
+	 * @throws:
+	 * @return:
+	 */
+	public void setDataSource(final DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+
+	/**
+	 * for Setting JdbcTemplate
+	 * 
+	 * @param jdbcTemplate
+	 */
+	public void setJdbcTemplate(final JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+	/**
+	 * subclasses to implement this - This is dummy implementation
+	 */
+	public Map<String, Object> execute(Map<String, Object> oHashInputParameters, String apiMsgId) {
+		return null;
+	}
+	/**
+	 * subclasses to implement this - This is dummy implementation
+	 */
+	public Map<String, Object> execute(String apiMsgId) {
+		return null;
+	}
+    protected void updateTransStatus(DataSourceTransactionManager dataSourceTransactionManager, TransactionStatus transactionStatus, boolean isError, String eventId) {
+        if(isError){
+        	try {
+				dataSourceTransactionManager.rollback(transactionStatus);
+			} 
+			catch (Exception ex) {
+				LOG.error(eventId, "SmartServiceEngine", "BaseDAO", "execute", "Exception while rolling back SP",
+						AmexLogger.Result.failure,	"Exception in rolling back SP execution", ex);
+			}
+        }else{
+            dataSourceTransactionManager.commit(transactionStatus);
+        }
+    }
+}

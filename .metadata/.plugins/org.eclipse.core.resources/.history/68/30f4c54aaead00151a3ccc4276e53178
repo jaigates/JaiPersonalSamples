@@ -1,0 +1,44 @@
+package com.postgres.spexceptionhadling;
+
+import java.sql.Types;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.SqlParameter;
+import org.springframework.jdbc.object.StoredProcedure;
+
+/*
+ * Inner class to implement stored procedure in spring.
+ */
+
+public class Insert_employeeSp extends StoredProcedure {
+
+
+	public Insert_employeeSp(DataSource datasource) {
+		super(datasource, "insert_emp_cust");
+		declareParameter(new SqlParameter("eid", Types.INTEGER));
+		declareParameter(new SqlParameter("eoldid", Types.INTEGER));
+		declareParameter(new SqlParameter("ename", Types.VARCHAR));
+		declareParameter(new SqlParameter("edob", Types.DATE));
+		declareParameter(new SqlParameter("version", Types.INTEGER));
+		declareParameter(new SqlParameter("ccust_id", Types.INTEGER));
+		declareParameter(new SqlParameter("cname", Types.VARCHAR));
+		declareParameter(new SqlParameter("cage", Types.INTEGER));
+		compile();
+	}
+
+	public Insert_employeeSp() {
+		
+	}
+
+	public Map<String, Object> execute() {
+		try {
+			Map<String, Object> results = super.execute();
+			return results;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

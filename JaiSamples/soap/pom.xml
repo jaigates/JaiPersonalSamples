@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<name>Soap Example</name>
+	<packaging>war</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!--
+				Below plugin provides a separate JAR for the JAX-WS artifacts (i.e.,
+				the objects created by running wsdl2java or wsimport), as this JAR
+				will also be used by the SOAP client. More info:
+				http://maven.apache.org/plugins/maven-assembly-plugin/
+			-->
+
+		</plugins>
+		<!-- Name of the generated WAR file -->
+		<finalName>doubleit</finalName>
+	</build>
+	
+	<parent>
+		<groupId>com.jai.samples</groupId>
+		<artifactId>jai-samples-parent</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>soap-example</artifactId>
+</project>
+
+

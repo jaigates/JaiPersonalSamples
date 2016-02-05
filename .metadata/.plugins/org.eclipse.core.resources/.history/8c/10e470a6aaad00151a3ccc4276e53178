@@ -1,0 +1,36 @@
+package com.postgres.spexceptionhadling;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Postgres_EmployeeSpsTest {
+	
+	
+	public static void main(String[] args) {
+
+		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		Postgres_EmployeeSps dao1 = (Postgres_EmployeeSps) context.getBean("Postgres_EmployeeSps");
+
+		Map<String, Object> inparams = new HashMap<String, Object>();
+		inparams.put("eid", 1);
+		inparams.put("eoldid", 1);
+		inparams.put("ename", "emp1");
+		inparams.put("edob", new Date());
+		inparams.put("version", 1);
+		inparams.put("ccust_id", 1);
+		inparams.put("cname", "cname1");
+		inparams.put("cage", 1);
+		
+		Map<String, Object> result = dao1.getResult(inparams);
+		System.out.println(result);
+
+		/* Sample data
+		 {SQLCODE_PARM=100       , RESP_MSG=GUID NOT FOUND                                                                                      , RESP_CODE=SSEAB001                 }
+
+		 */
+	}
+}

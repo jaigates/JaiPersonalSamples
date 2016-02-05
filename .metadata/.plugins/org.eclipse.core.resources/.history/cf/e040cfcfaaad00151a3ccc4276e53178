@@ -1,0 +1,84 @@
+package com.americanexpress.smartserviceengine.dao.common;
+
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.TransactionStatus;
+
+import com.americanexpress.amexlogger.AmexLogger;
+
+/**
+ * <p>
+ * Copyright © 2013 AMERICAN EXPRESS. All Rights Reserved.
+ * </p>
+ * <p>
+ * AMERICAN EXPRESS CONFIDENTIAL. All information, copyrights, trade secrets<br>
+ * and other intellectual property rights, contained herein are the property<br>
+ * of AMERICAN EXPRESS. This document is strictly confidential and must not be
+ * <br>
+ * copied, accessed, disclosed or used in any manner, in whole or in part,<br>
+ * without Amex's express written authorization.
+ * </p>
+ */
+public abstract class BaseDAO {
+	
+	private static AmexLogger LOG = AmexLogger.create(BaseDAO.class);
+	/**
+	 * JdbcTemplate executes core JDBC workflow, leaving application code to provide SQL and extract results. This class
+	 * executes SQL queries or updates, initiating iteration over ResultSets and catching JDBC exceptions.
+	 */
+	protected JdbcTemplate jdbcTemplate;
+	
+	/**
+	 * default constructor
+	 */
+	public BaseDAO(){
+	}
+	/**
+	 * for Setting DataSource
+	 * 
+	 * @param: DataSource dataSource
+	 * @throws:
+	 * @return:
+	 */
+	public void setDataSource(final DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+
+	/**
+	 * for Setting JdbcTemplate
+	 * 
+	 * @param jdbcTemplate
+	 */
+	public void setJdbcTemplate(final JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+	/**
+	 * subclasses to implement this - This is dummy implementation
+	 */
+	public Map<String, Object> execute(Map<String, Object> oHashInputParameters, String apiMsgId) {
+		return null;
+	}
+	/**
+	 * subclasses to implement this - This is dummy implementation
+	 */
+	public Map<String, Object> execute(String apiMsgId) {
+		return null;
+	}
+    protected void updateTransStatus(DataSourceTransactionManager dataSourceTransactionManager, TransactionStatus transactionStatus, boolean isError, String eventId) {
+        if(isError){
+        	try {
+				dataSourceTransactionManager.rollback(transactionStatus);
+			} 
+			catch (Exception ex) {
+				LOG.error(eventId, "SmartServiceEngine", "BaseDAO", "execute", "Exception while rolling back SP",
+						AmexLogger.Result.failure,	"Exception in rolling back SP execution", ex);
+			}
+        }else{
+            dataSourceTransactionManager.commit(transactionStatus);
+        }
+    }
+}

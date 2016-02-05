@@ -18,8 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 /**
- * This servlet class demonstrates how to access a JNDI DataSource that 
+ * This servlet class demonstrates how to access a JNDI DataSource that
  * represents a JDBC connection.
+ * 
  * @author www.codejava.net
  */
 @WebServlet("/listUsers")
@@ -28,28 +29,36 @@ public class UsersListServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter writer = response.getWriter();
+			HttpServletResponse response) {
 		try {
+			PrintWriter writer = response.getWriter();
 			Context initContext = new InitialContext();
-			Context envContext = (Context) initContext.lookup("java:comp/env");
+			
+			Object lookup = initContext.lookup("java:/comp/env/jdbc/UsersDB");
+			
+			Context envContext = (Context) initContext.lookup("java:/comp/env/");
 			DataSource ds = (DataSource) envContext.lookup("jdbc/UsersDB");
 			Connection conn = ds.getConnection();
-			
+
 			Statement statement = conn.createStatement();
 			String sql = "select username, email from users";
 			ResultSet rs = statement.executeQuery(sql);
-			
+
 			int count = 1;
 			while (rs.next()) {
-				writer.println(String.format("User #%d: %-15s %s", count++, 
+				writer.println(String.format("User #%d: %-15s %s", count++,
 						rs.getString("username"), rs.getString("email")));
-				
+
 			}
-		} catch (NamingException ex) {
-			ex.printStackTrace();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util" 
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<context:component-scan base-package="com.mkyong.common.controller" />
+
+	<bean
+		class="com.americanexpress.aboportal.web.service.impl.plaid.PlaidServiceImpl.PlaidServiceImpl" />
+
+	<mvc:annotation-driven />
+
+	<!-- Resolves view names to protected .jsp resources -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+	<context:property-placeholder location="classpath:aboportal.properties"/>
+
+	<util:properties id="propertyConfigurer" location="classpath:aboportal.properties"/>
+	
+<!-- 
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename">
+			<value>classpath:aboportal</value>
+			<value>file:///C:/Softwares/Jai/Personal/JaiPersonalSamples/MKYongSpringMVC-Json-Example/src/main/resources/aboportal.properties</value>
+		</property>
+		<property name="cacheSeconds" value="1" />
+	</bean> -->
+
+
+</beans>

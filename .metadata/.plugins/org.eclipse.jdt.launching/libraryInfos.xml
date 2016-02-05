@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><libraryInfos>
+<libraryInfo home="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre" version="1.6.0">
+<bootpath>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\endorsed\jaxws-api.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\endorsed\jaxb-api.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\bin\compressedrefs\jclSC160\vm.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\annotation.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\beans.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\java.util.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\jndi.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\logging.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\security.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\sql.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmorb.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmorbapi.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmcfw.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\rt.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\charsets.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\resources.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmpkcs.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmcertpathfw.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmjgssfw.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmjssefw.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmsaslfw.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmjcefw.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmjgssprovider.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmjsseprovider2.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ibmcertpathprovider.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\management-agent.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\xml.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\jlm.jar"/>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\javascript.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Softwares\Jai\Technical\Servers\IBM\WebSphere\AppServer3\java\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Program Files (x86)\IBM\WebSphere\AppServer\java" version="1.6.0">
+<bootpath>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\endorsed\jaxws-api.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\endorsed\jaxb-api.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\endorsed\javax.j2ee.annotation.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\bin\compressedrefs\jclSC160\vm.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\annotation.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\beans.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\java.util.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\jndi.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\logging.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\security.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\sql.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmorb.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmorbapi.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmcfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\rt.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\charsets.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\resources.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmpkcs.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmcertpathfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmjgssfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmjssefw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmsaslfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmjcefw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmjgssprovider.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmjsseprovider2.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmcertpathprovider.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\management-agent.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\xml.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\jlm.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\javascript.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre" version="1.6.0">
+<bootpath>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\endorsed\jaxws-api.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\endorsed\jaxb-api.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\endorsed\javax.j2ee.annotation.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\bin\compressedrefs\jclSC160\vm.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\annotation.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\beans.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\java.util.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\jndi.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\logging.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\security.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\sql.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmorb.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmorbapi.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmcfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\rt.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\charsets.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\resources.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmpkcs.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmcertpathfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmjgssfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmjssefw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmsaslfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmjcefw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmjgssprovider.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmjsseprovider2.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ibmcertpathprovider.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\management-agent.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\xml.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\jlm.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\javascript.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64" version="1.7.0">
+<bootpath>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\bin\compressedrefs\jclSC170\vm.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\se-service.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\math.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\jlm.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmorb.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmorbapi.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmcfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmpkcs.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmcertpathfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmjgssfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmjssefw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmsaslfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmjcefw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmjgssprovider.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmjsseprovider2.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ibmcertpathprovider.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\xmldsigfw.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\xml.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\charsets.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\resources.jar"/>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\rt.jar"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files (x86)\IBM\WebSphere\AppServer\java_1.7_64\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

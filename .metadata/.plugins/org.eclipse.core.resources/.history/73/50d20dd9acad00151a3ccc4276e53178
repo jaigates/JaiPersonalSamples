@@ -1,0 +1,78 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd">
+
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> <property 
+		name="url" value="jdbc:mysql://localhost:3306/mkyongjava" /> <property name="username" 
+		value="root" /> <property name="password" value="password" /> </bean> -->
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="org.postgresql.Driver" /> <property 
+		name="url" value="jdbc:postgresql://localhost:5432/jailocal" /> <property 
+		name="username" value="role1" /> <property name="password" value="role1" 
+		/> </bean> -->
+
+	<bean id="propertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="springDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="defaultAutoCommit" value="false" />
+	</bean>
+
+	<bean id="postgresDS" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/jailocal" />
+		<property name="username" value="role1" />
+		<property name="password" value="role1" />
+		<property name="defaultAutoCommit" value="false" />
+	</bean>
+
+
+
+	<!-- dataSource TransactionManager -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="postgresDS" />
+	</bean>
+<!-- 
+	<bean id="UserDAOImpl" class="com.project.dao.impl.UserDAOImpl">
+		<property name="transactionManager" ref="transactionManager" />
+	</bean>
+ -->
+
+	<!-- commented for jboss, uncomment for tomcat only <jee:jndi-lookup id="jee_ds" 
+		jndi-name="jdbc/MyLocalDB" resource-ref="true" /> -->
+	<bean id="dbesse" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" lazy-init="true">
+		<property name="poolPreparedStatements" value="true" />
+		<property name="url" value="jdbc:db2://148.171.100.10:7320/ADC1DB2D" />
+		<property name="driverClassName" value="com.ibm.db2.jcc.DB2Driver" />
+		<property name="username" value="XB1088A" />
+		<property name="password" value="GCP@15TS" />
+		<property name="defaultAutoCommit" value="false" />
+	</bean>
+
+	<!-- <bean id="MyServiceLocator" class="com.jai.spring.beanutils.MyServiceLocator" 
+		factory-method="getInstance" /> <bean id="dataSource" factory-bean="MyServiceLocator" 
+		factory-method="getDataSource"> <constructor-arg value="jdbc/MyLocalDB" /> 
+		</bean> -->
+
+	<!-- <bean id="tomcat_jndi_ds" name="tomcat_jndi_ds" class="org.springframework.jndi.JndiObjectFactoryBean"> -->
+	<!-- <bean id="tomcat_jndi_ds" name="tomcat_jndi_ds" class="com.jai.spring.beanutils.MyServiceLocator" 
+		factory-method="getInstance"> <property name="jndiName" value="java:/comp/env/jdbc/MyLocalDB" 
+		/> <property name="jndiName" value="jdbc/MyLocalDB" /> </bean> -->
+
+
+
+</beans>

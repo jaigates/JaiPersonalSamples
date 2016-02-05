@@ -1,0 +1,74 @@
+package com.jai.postgres.spexceptionhadling;
+
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.inject.Inject;
+import javax.sql.DataSource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
+
+@Repository
+public class Postgres_EmployeeSpsImpl extends BaseDAO implements Postgres_EmployeeSps {
+
+	Logger LOG = LoggerFactory.getLogger(Postgres_EmployeeSpsImpl.class);
+
+	// private JdbcTemplate jdbcTemplate;
+
+	private Insert_employeeSp sproc;
+
+	@Autowired
+	private DataSourceTransactionManager transactionManager;
+
+	//private JdbcTemplate jdbcTemplate;
+
+	//private DataSource datasource;
+	
+	@Inject
+	@Qualifier("postgresDS")
+	public void setDataSource(DataSource datasource) {
+		//this.datasource = datasource;
+		//this.jdbcTemplate = new JdbcTemplate(datasource);
+		this.sproc = new Insert_employeeSp(datasource);
+	}
+
+	/** Data Source for Transaction Manager **/
+	@Resource
+	@Qualifier("transactionManager")
+	private DataSourceTransactionManager txManager;
+
+	public Map<String, Object> getResult(Map<String, Object> inparams) {
+		TransactionStatus transStatus = null;
+
+		Map<String, Object> execute = null;
+		boolean isError = false;
+		try {
+			final DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+			def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+			transStatus = txManager.getTransaction(def);
+			execute = sproc.execute(inparams);
+		} catch (DataAccessException e) {
+			isError = true;
+			// TODO Auto-generated catch block
+			LOG.error("Exception has occured : ", e);
+		} finally {
+			updateTransStatus(txManager, transStatus, isError, "");
+			final long endTimeStamp = System.currentTimeMillis();
+			// ThreadLocalManager.getRequestStatistics().put("UpdateAchOrganizationDAO - execute(): SP_E3GMR046",
+			// (isError?"F:":"S:")+(endTimeStamp-startTimeStamp) +" ms");
+		}
+
+		return execute;
+	}
+
+}

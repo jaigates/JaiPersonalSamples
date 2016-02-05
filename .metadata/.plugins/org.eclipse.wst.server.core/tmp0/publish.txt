@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Wed Dec 09 17:04:42 MST 2015
+org.eclipse.jst.j2ee.server\:/binary\:C\:\\Softwares\\Jai\\mvn_local_repository\\org\\springframework\\spring-web\\3.2.4.RELEASE\\spring-web-3.2.4.RELEASE.jar=C\:\\Softwares\\Jai\\Technical\\Servers\\apache-tomcat-7.0.64\\wtpwebapps\\rest-example\\WEB-INF\\lib\\spring-web-3.2.4.RELEASE.jar
+org.eclipse.jst.j2ee.server\:rest-example=C\:\\Softwares\\Jai\\Technical\\Servers\\apache-tomcat-7.0.64\\wtpwebapps\\rest-example

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.TEST0123&apos; to &apos;MKYongSpringJDBCExample/src/main/java/com.TEST0123&apos;&#x0D;&#x0A;- Original project: &apos;MKYongSpringJDBCExample&apos;&#x0D;&#x0A;- Destination element: &apos;MKYongSpringJDBCExample/src/main/java/com.TEST0123&apos;&#x0D;&#x0A;- Original element: &apos;MKYongSpringJDBCExample/src/main/java/com.TEST0123&apos;" description="Copy package" destination="/src\/main\/java&lt;com.TEST0123" element1="/src\/main\/java&lt;com.TEST0123" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1450994573224" version="1.0"/>
+</session>

@@ -1,10 +1,18 @@
 package com.mkyong.common.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
+import java.util.Scanner;
 
+import javax.imageio.ImageIO;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -12,8 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,8 +38,26 @@ public class JDBCDataSourceController {
 	private @Autowired
 	HttpSession session;
 
-	@RequestMapping(value = { "", "/" },produces ="text/html")
-	public @ResponseBody String doGet() {
+	@RequestMapping(value = { "", "/" }, produces = "text/html")
+	public @ResponseBody
+	String doGet() throws JsonParseException, JsonMappingException, IOException {
+		/*
+		 * try { // now try reading the request's input stream -- we expect it
+		 * to be there StringBuilder stringBuilder = new StringBuilder();
+		 * InputStream inputStream = request.getInputStream(); BufferedReader
+		 * bufferedReader = null; if (inputStream != null) { bufferedReader =
+		 * new BufferedReader(new InputStreamReader(inputStream)); char[]
+		 * charBuffer = new char[128]; int bytesRead = -1; while ((bytesRead =
+		 * bufferedReader.read(charBuffer)) > 0) {
+		 * stringBuilder.append(charBuffer, 0, bytesRead); } }
+		 * System.out.println(stringBuilder);
+		 * 
+		 * } catch (Exception ex) { System.out.println(ex); }
+		 */
+
+		Scanner s = new Scanner(request.getInputStream());
+		System.out.println("Value : " + (s.hasNext() ? s.next() : ""));
+
 		Context ctx = null;
 		Connection con = null;
 		Statement stmt = null;
@@ -81,5 +110,37 @@ public class JDBCDataSourceController {
 		}
 		return null;
 	}
+
+	@RequestMapping(value = "/getemployee")
+	public @ResponseBody
+	Employee getemployee(@RequestBody Employee emp) {
+		System.out.println(emp);
+
+		emp.setName(emp.getName() + "-" + new Date());
+		return emp;
+
+	}
+
+	@RequestMapping(value = "/setemployee")
+	public @ResponseBody
+	String setemployee(@RequestBody Employee emp) {
+
+		System.out.println(emp);
+
+		return emp.toString();
+
+	}
+
+	/*@RequestMapping(value = "/uploadImage")
+	public @ResponseBody
+	String uploadImage(@RequestBody ImagePojo image) {
+
+		// convert byte array back to BufferedImage
+		InputStream in = new ByteArrayInputStream(imageInByte);
+		BufferedImage bImageFromConvert = ImageIO.read(in);
+
+		ImageIO.write(bImageFromConvert, "jpg", new File("c:/new-darksouls.jpg"));
+		return "";
+	}*/
 
 }

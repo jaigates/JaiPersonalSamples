@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- <bean id="customerDAO" class="com.jai.mkyong.customer.dao.impl.JdbcCustomerDAO"> <property name="dataSource" ref="dataSource" /> </bean> -->
+	<bean id="employeeDao" class="com.jai.mkyong.customer.dao.impl.EmployeeDAO">
+		<property name="dataSource" ref="springDataSource" />
+	</bean>
+
+	<bean id="customerDAO" class="com.jai.mkyong.customer.dao.impl.tomcatjndi.JdbcCustomerDAO">
+		<property name="dataSource" ref="springDataSource" />
+	</bean>
+
+	<bean id="TEST0117DAO" class="com.jai.TEST0117.TEST0117DAOImpl">
+		<property name="dataSource" ref="dbesse" />
+	</bean>
+
+	<bean id="TEST0118DAO" class="com.jai.TEST0118.TEST0118DAOImpl">
+		<property name="dataSource" ref="dbesse" />
+	</bean>
+
+	<bean id="TEST0123DAO" class="com.jai.TEST0123.TEST0123DAOImpl">
+		<property name="dataSource" ref="dbesse" />
+	</bean>
+
+	<bean id="TEST0113DAO" class="com.jai.TEST0113.TEST0113DAOImpl">
+		<property name="dataSource" ref="dbesse" />
+	</bean>
+	
+	
+	<!-- <bean id="Postgres_EmployeeSps" class="com.jai.postgres.spexceptionhadling.Postgres_EmployeeSpsImpl">
+		<property name="dataSource" ref="postgresDS" />
+	</bean>
+	 -->
+
+	<!-- <bean id="jdbcEmployeeDAO" class="com.jai.mkyong.customer.dao.impl.tomcatjndi.JDBCEmployeeDAOImpl">
+		<property name="dataSource" ref="springDataSource" />
+		<property name="dataSource" ref="java:/comp/env/jdbc/MyLocalDB" />
+	</bean>
+	 -->
+
+</beans>

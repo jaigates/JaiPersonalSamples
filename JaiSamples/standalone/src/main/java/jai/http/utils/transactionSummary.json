@@ -1,0 +1,26 @@
+{
+     "getTransSummaryRequest" : {
+    "data" : {
+      "commonRequestContext" : {
+        "requestId" : "5d6fe725-2b91-45d5-9586-a05ab7",
+        "partnerId" : "abcdefgh-46c9-4ef7-9af3-c09f9c25e7f9",
+        "timestamp" : "2015-11-02T19:02:35.705+05:30",
+        "partnerName" : "LIBERTY"
+      },
+      "startRecord" : "0",
+      "endRecord" : "0",
+      "searchCriteria" : {
+        "buyerInvoiceRefs" : [ ],
+        "startDate" : "10/03/2015",
+        "purchaseOrderNos" : [ ],
+        "buyerPymtRefIds" : [ ],
+        "endDate" : "11/02/2015",
+        "lastNoOfDays" : "30"
+      },
+      "organizationId" : "344266f9-b5d6-4098-b67e-d429098cb629",
+      "sortCriteria" : {
+      },
+      "organizationType" : "CUST"
+    }
+  }
+}

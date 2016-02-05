@@ -1,0 +1,14 @@
+package com.jai.postgres.spexceptionhadling;
+
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+public interface Postgres_EmployeeSps {
+
+	public abstract void setDataSource(DataSource source);
+
+//	/Integer id,Integer oldid , String name ,Date dob , Integer version 
+	public Map<String, Object> getResult(Map<String, Object> inparams);
+
+}
